@@ -39,7 +39,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Trivy - scan du dépôt (CVE, secrets, misconfig)
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.35.0
         with:
           scan-type: fs
           scan-ref: .
@@ -52,7 +52,7 @@ jobs:
         run: docker build -t cloud-iot-api:${{ github.sha }} .
 
       - name: Trivy - scan de l'image
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@0.35.0
         with:
           image-ref: cloud-iot-api:${{ github.sha }}
           severity: CRITICAL,HIGH
