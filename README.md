@@ -128,7 +128,8 @@ Les tests utilisent des mocks : ni broker ni base de données ne sont nécessair
 
 ## Limites connues et pistes d'amélioration
 
-- Mosquitto accepte les connexions anonymes et sans TLS : à remplacer par authentification
+  - Mosquitto est authentifié (`password_file`) mais sans TLS ni ACL par topic : les identifiants
+    circulent en clair sur le port 1883.
   (`password_file`, ACL par topic) et MQTT sur TLS (port 8883).
 - Tous les ports sont publiés pour faciliter les tests locaux : en production, un reverse proxy
   avec TLS serait le seul point d'entrée.
